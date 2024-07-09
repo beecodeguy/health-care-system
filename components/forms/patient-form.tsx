@@ -7,11 +7,11 @@ import { useForm } from "react-hook-form";
 import { z } from "zod";
 
 import { Form } from "@/components/ui/form";
-// import { createUser } from "@/lib/actions/patient.actions";
 import { UserFormValidation } from "@/lib/validation";
 
 import CustomFormField from "../custom-form-field";
 import SubmitButton from "../submit-button";
+import { createUser } from "@/lib/actions/patient.action";
 
 export enum FormFieldType {
   INPUT = "input",
@@ -48,12 +48,11 @@ export const PatientForm = () => {
         phone,
       };
 
-      // const newUser = await createUser(user);
-      // const newUser = null as any;
+      const newUser = await createUser(user);
 
-      // if (newUser) {
-      //   router.push(`/patients/${newUser?.$id}/register`);
-      // }
+      if (newUser) {
+        router.push(`/patients/${newUser?.$id}/register`);
+      }
     } catch (error) {
       console.log(error);
     }
