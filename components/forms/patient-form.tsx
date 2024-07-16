@@ -85,7 +85,7 @@ export const PatientForm = () => {
           label="Email"
           placeholder="johndoe@gmail.com"
           iconSrc="/assets/icons/email.svg"
-          iconAlt="email"
+        iconAlt="email"
         />
 
         <CustomFormField
