@@ -17,6 +17,7 @@ import { Doctors, GenderOptions, IdentificationTypes } from "@/constants";
 import { Label } from "../ui/label";
 import { SelectItem } from "../ui/select";
 import Image from "next/image";
+import FileUploader from "../file-uploader";
 
 export const RegisterForm = ({ user }: { user: User }) => {
   const router = useRouter();
@@ -276,7 +277,11 @@ export const RegisterForm = ({ user }: { user: User }) => {
           control={form.control}
           name="identificationDocument"
           label="Scanned Copy of Identification Document"
-          renderSkeleton={(field) => <FormControl>File Upload</FormControl>}
+          renderSkeleton={(field) => (
+            <FormControl>
+              <FileUploader files={field.value} onChange={field.onChange} />
+            </FormControl>
+          )}
         />
 
         <SubmitButton isLoading={isLoading}>Get Started</SubmitButton>
